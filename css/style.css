@@ -270,8 +270,8 @@ h1, h2, h3, h4, .heading-font {
 .score-bg { fill: none; stroke: rgba(255,255,255,0.05); stroke-width: 6; }
 .score-progress { fill: none; stroke: var(--neon-blue); stroke-width: 6; stroke-dasharray: 283; stroke-dashoffset: 283; stroke-linecap: round; filter: drop-shadow(0 0 8px var(--neon-blue)); }
 .score-value { z-index: 2; font-size: 3.5rem; font-weight: 700; line-height: 1; margin-top: 10px; }
-.eval-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-.eval-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 1.5rem; border-radius: 12px; transition: all 0.3s ease; }
+.eval-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: stretch; }
+.eval-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 1.5rem; border-radius: 12px; transition: all 0.3s ease; height: 100%; display: block; }
 .eval-card:hover { border-color: rgba(255,255,255,0.3); transform: translateY(-5px); box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
 .eval-card li { margin-bottom: 0.8rem; }
 @media screen and (max-width: 768px) { .eval-grid { grid-template-columns: 1fr; } .interview-container { height: 90vh; } }
