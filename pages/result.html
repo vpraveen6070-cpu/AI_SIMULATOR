@@ -1,0 +1,44 @@
+<div class="result-container slide-up">
+    <div class="glass-panel text-center" style="max-width:800px; margin: 0 auto;">
+        <h2 class="heading-font glitch-text neon-text mb-4" data-text="Simulation Complete">Simulation Complete</h2>
+        
+        <div class="score-meter-container">
+            <svg class="score-svg" viewBox="0 0 100 100">
+                <circle class="score-bg" cx="50" cy="50" r="45"></circle>
+                <!-- dasharray 283 is circumference of r=45 -->
+                <circle class="score-progress" id="score-circle" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <div class="score-value heading-font neon-text">
+                <span id="final-score">0</span><span style="font-size:1rem;opacity:0.7;">%</span>
+            </div>
+        </div>
+        
+        <div class="eval-grid mt-4">
+            <div class="eval-card interactable">
+                <i class="fa-solid fa-arrow-trend-up mb-2" style="font-size:2rem;color:var(--success-green); text-shadow:0 0 10px var(--success-green);"></i>
+                <h3 class="heading-font mt-2 mb-4">Strengths</h3>
+                <ul id="list-strengths" class="text-muted" style="text-align:left;list-style-type:circle;margin-left:20px;">
+                    <!-- Injected via JS -->
+                </ul>
+            </div>
+            <div class="eval-card interactable">
+                <i class="fa-solid fa-shield-halved mb-2" style="font-size:2rem;color:var(--danger-red); text-shadow:0 0 10px var(--danger-red);"></i>
+                <h3 class="heading-font mt-2 mb-4">Weaknesses</h3>
+                <ul id="list-weaknesses" class="text-muted" style="text-align:left;list-style-type:circle;margin-left:20px;">
+                    <!-- Injected via JS -->
+                </ul>
+            </div>
+        </div>
+        
+        <div class="mt-4 eval-card" style="text-align: left; padding: 2rem;">
+            <h3 class="heading-font mb-2" style="color:var(--electric-purple);text-shadow:0 0 10px var(--electric-purple-glow);">AI Architect Suggestion</h3>
+            <p id="eval-suggestion" class="text-muted" style="font-style:italic; font-size:1.1rem; line-height: 1.6;">...</p>
+        </div>
+        
+        <div class="cta-container mt-4 pt-4">
+            <button class="neon-btn interactable" onclick="App.navigate('role')">
+                <i class="fa-solid fa-rotate-right"></i> Reboot Simulation
+            </button>
+        </div>
+    </div>
+</div>

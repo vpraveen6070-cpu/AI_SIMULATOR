@@ -1,0 +1,38 @@
+<div class="interview-container slide-up">
+    <!-- Header: Role Info & Timer -->
+    <header class="interview-header glass-panel">
+        <div class="role-badge" style="display:flex; align-items:center; gap:10px;">
+            <i class="fa-solid fa-code" id="current-role-icon" style="color:var(--neon-blue);font-size:1.5rem;"></i>
+            <span id="current-role-title" class="heading-font neon-text" style="font-size:1.2rem;">Frontend Dev</span>
+        </div>
+        <div class="timer-display text-muted" style="display:flex; align-items:center; gap:8px;">
+            <i class="fa-regular fa-clock"></i>
+            <span id="session-timer" class="heading-font" style="font-size:1.2rem;">00:00</span>
+        </div>
+    </header>
+
+    <!-- Chat History -->
+    <div class="chat-history glass-panel" id="chat-history">
+        <!-- Messages injected dynamically via JS -->
+    </div>
+
+    <!-- Input Area -->
+    <div class="chat-input-area glass-panel">
+        <div class="input-wrapper">
+            <button id="btn-voice-toggle" class="voice-btn interactable" title="Toggle Voice Input">
+                <i class="fa-solid fa-microphone"></i>
+            </button>
+            <input type="text" id="chat-input" placeholder="Type your response or use voice input..." autocomplete="off">
+            <button id="btn-send" class="send-btn interactable" title="Send Response">
+                <i class="fa-solid fa-paper-plane"></i>
+            </button>
+        </div>
+        <div id="voice-status" class="voice-status hidden">Listening initialized... speak now.</div>
+    </div>
+    
+    <div style="text-align: center;">
+        <button id="btn-end-interview" class="neon-btn neon-btn-danger interactable mt-4 mx-auto">
+            <i class="fa-solid fa-flag-checkered"></i> End Simulation
+        </button>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="login-container slide-up">
+    <div class="glass-panel text-center pulse-glow" style="width: 100%; max-width:420px; padding: 3rem 2.5rem;">
+        <div style="font-size: 3.5rem; color: var(--electric-purple); margin-bottom: 1.5rem; text-shadow: 0 0 15px var(--electric-purple-glow);">
+            <i class="fa-solid fa-user-astronaut"></i>
+        </div>
+        <h2 class="heading-font neon-text mb-4">System Access</h2>
+        
+        <form id="login-form" autocomplete="off" onsubmit="event.preventDefault(); App.navigate('landing');">
+            <div class="input-group mb-4">
+                <input type="email" id="login-email" class="cyber-input interactable" placeholder="Operative Email" required>
+                <i class="fa-solid fa-envelope input-icon"></i>
+            </div>
+            
+            <div class="input-group mb-4">
+                <input type="password" id="login-pass" class="cyber-input interactable" placeholder="Passcode" required>
+                <i class="fa-solid fa-lock input-icon"></i>
+            </div>
+            
+            <button type="submit" class="neon-btn interactable mt-2" style="width: 100%; justify-content: center;">
+                <i class="fa-solid fa-right-to-bracket"></i> Authenticate
+            </button>
+        </form>
+        <p class="text-muted mt-4" style="font-size: 0.9rem;">Biometric scan bypass active.</p>
+    </div>
+</div>

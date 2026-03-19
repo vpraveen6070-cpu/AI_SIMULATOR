@@ -1,0 +1,42 @@
+/* responsive.css */
+@media screen and (max-width: 992px) {
+    .glass-panel { padding: 2rem; }
+    .glitch-text { font-size: 2.5rem; }
+    .roles-grid { gap: 1.5rem; }
+}
+
+@media screen and (max-width: 768px) {
+    .roles-grid {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+    .tilt-card {
+        width: 100%;
+        max-width: 400px;
+    }
+    .glitch-text {
+        font-size: 2rem;
+    }
+    .glass-panel {
+        padding: 1.5rem;
+    }
+    .subtitle { margin-top: 1rem; font-size: 1rem; }
+    
+    /* Disable custom cursor and parallax optimizations */
+    .cursor-dot, .cursor-outline {
+        display: none !important;
+    }
+    * { cursor: auto !important; }
+    .interactable, .tilt-card, .neon-btn { cursor: pointer !important; }
+}
+
+@media screen and (max-width: 480px) {
+    .glitch-text { font-size: 1.7rem; }
+    .neon-btn {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    .tilt-card .card-icon { font-size: 3rem; margin-bottom: 1rem; }
+    h3 { font-size: 1.3rem; }
+}
