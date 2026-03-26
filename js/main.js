@@ -2,7 +2,48 @@
 
 const App = {
     currentRole: null,
+    isLoggedIn: false,
     
+    login() {
+        this.isLoggedIn = true;
+        const navLogin = document.querySelector('.nav-menu [data-target="login"]');
+        if (navLogin && navLogin.parentElement) {
+            navLogin.parentElement.style.display = 'none';
+        }
+        this.navigate('role');
+    },
+    
+    HistoryManager: {
+        getHistory() {
+            let hist = localStorage.getItem('ai_interview_history');
+            if (!hist) {
+                const initialMocks = [
+                    { role: 'frontend', roleName: 'Frontend Developer', score: 92, date: '2026-03-18 | 14:30:00' },
+                    { role: 'ai', roleName: 'AI Engineer', score: 78, date: '2026-03-15 | 09:15:22' },
+                    { role: 'backend', roleName: 'Backend Developer', score: 64, date: '2026-03-10 | 18:45:10' },
+                    { role: 'frontend', roleName: 'Frontend Developer', score: 88, date: '2026-02-28 | 10:20:00' },
+                    { role: 'backend', roleName: 'Backend Developer', score: 95, date: '2026-02-25 | 16:00:00' },
+                    { role: 'ai', roleName: 'AI Engineer', score: 82, date: '2026-02-20 | 11:11:11' },
+                    { role: 'frontend', roleName: 'Frontend Developer', score: 74, date: '2026-02-15 | 13:45:00' },
+                    { role: 'backend', roleName: 'Backend Developer', score: 89, date: '2026-02-10 | 09:00:00' },
+                    { role: 'ai', roleName: 'AI Engineer', score: 91, date: '2026-02-05 | 15:30:22' },
+                    { role: 'frontend', roleName: 'Frontend Developer', score: 68, date: '2026-01-30 | 14:20:10' }
+                ];
+                localStorage.setItem('ai_interview_history', JSON.stringify(initialMocks));
+                return initialMocks;
+            }
+            return JSON.parse(hist);
+        },
+        addHistory(item) {
+            let hist = this.getHistory();
+            hist.unshift(item);
+            if (hist.length > 10) {
+                hist.pop();
+            }
+            localStorage.setItem('ai_interview_history', JSON.stringify(hist));
+        }
+    },
+
     init() {
         this.initCursor();
         this.initRouting();
@@ -141,11 +182,44 @@ const App = {
                 window.ResultController.init();
             }
         }
+
+        if (page === 'history') {
+            const container = document.getElementById('dynamic-history-list');
+            if (container) {
+                const history = this.HistoryManager.getHistory();
+                container.innerHTML = history.map(h => {
+                    let colorVar = '--success-green';
+                    if (h.score < 70) colorVar = '--danger-red';
+                    else if (h.score < 80) colorVar = '--neon-blue';
+                    
+                    let icon = 'fa-code';
+                    if (h.role === 'backend') icon = 'fa-server';
+                    if (h.role === 'ai') icon = 'fa-network-wired';
+
+                    return `
+                        <div class="history-card interactable" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:4px solid var(${colorVar}); padding:1.5rem 2rem; border-radius:10px; display:flex; justify-content:space-between; align-items:center;">
+                            <div>
+                                <h3 class="heading-font" style="font-size:1.3rem; color: #fff; display:flex; align-items:center; gap:10px;">
+                                    <i class="fa-solid ${icon} text-muted"></i> ${h.roleName || h.role}
+                                </h3>
+                                <p class="text-muted mt-2" style="font-size:0.95rem; display:flex; align-items:center; gap:8px;">
+                                    <i class="fa-regular fa-calendar-days"></i> ${h.date}
+                                </p>
+                            </div>
+                            <div class="score-display text-center">
+                                <div style="font-size:1.8rem; font-weight:700; color:var(${colorVar}); text-shadow:0 0 10px var(${colorVar});">${h.score}%</div>
+                                <div class="text-muted" style="font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">Match Rate</div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        }
     }
 };
 
 window.addEventListener('DOMContentLoaded', () => {
     App.init();
     window.App = App; // Expose globally
-    setTimeout(() => { App.navigate('login'); }, 50);
+    setTimeout(() => { App.navigate('landing'); }, 50);
 });

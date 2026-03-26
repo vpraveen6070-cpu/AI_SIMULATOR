@@ -5,72 +5,8 @@
             <p class="text-muted mt-2"><i class="fa-solid fa-fingerprint"></i> Historical evaluation records for authorized operative.</p>
         </div>
         
-        <div class="history-list" style="display:flex; flex-direction: column; gap:1.2rem; overflow-y:auto; max-height:45vh; padding-right:15px;">
-            
-            <!-- History Card 1 -->
-            <div class="history-card interactable" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:4px solid var(--success-green); padding:1.5rem 2rem; border-radius:10px; display:flex; justify-content:space-between; align-items:center;">
-                <div>
-                    <h3 class="heading-font" style="font-size:1.3rem; color: #fff; display:flex; align-items:center; gap:10px;">
-                        <i class="fa-solid fa-code text-muted"></i> Frontend Developer
-                    </h3>
-                    <p class="text-muted mt-2" style="font-size:0.95rem; display:flex; align-items:center; gap:8px;">
-                        <i class="fa-regular fa-calendar-days"></i> 2026-03-18 | 14:30:00
-                    </p>
-                </div>
-                <div class="score-display text-center">
-                    <div style="font-size:1.8rem; font-weight:700; color:var(--success-green); text-shadow:0 0 10px var(--success-green);">92%</div>
-                    <div class="text-muted" style="font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">Match Rate</div>
-                </div>
-            </div>
-
-            <!-- History Card 2 -->
-            <div class="history-card interactable" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:4px solid var(--neon-blue); padding:1.5rem 2rem; border-radius:10px; display:flex; justify-content:space-between; align-items:center;">
-                <div>
-                    <h3 class="heading-font" style="font-size:1.3rem; color: #fff; display:flex; align-items:center; gap:10px;">
-                        <i class="fa-solid fa-network-wired text-muted"></i> AI Engineer
-                    </h3>
-                    <p class="text-muted mt-2" style="font-size:0.95rem; display:flex; align-items:center; gap:8px;">
-                        <i class="fa-regular fa-calendar-days"></i> 2026-03-15 | 09:15:22
-                    </p>
-                </div>
-                <div class="score-display text-center">
-                    <div style="font-size:1.8rem; font-weight:700; color:var(--neon-blue); text-shadow:0 0 10px var(--neon-blue);">78%</div>
-                    <div class="text-muted" style="font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">Match Rate</div>
-                </div>
-            </div>
-            
-            <!-- History Card 3 -->
-            <div class="history-card interactable" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:4px solid var(--danger-red); padding:1.5rem 2rem; border-radius:10px; display:flex; justify-content:space-between; align-items:center;">
-                <div>
-                    <h3 class="heading-font" style="font-size:1.3rem; color: #fff; display:flex; align-items:center; gap:10px;">
-                        <i class="fa-solid fa-server text-muted"></i> Backend Developer
-                    </h3>
-                    <p class="text-muted mt-2" style="font-size:0.95rem; display:flex; align-items:center; gap:8px;">
-                        <i class="fa-regular fa-calendar-days"></i> 2026-03-10 | 18:45:10
-                    </p>
-                </div>
-                <div class="score-display text-center">
-                    <div style="font-size:1.8rem; font-weight:700; color:var(--danger-red); text-shadow:0 0 10px var(--danger-red);">64%</div>
-                    <div class="text-muted" style="font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">Match Rate</div>
-                </div>
-            </div>
-            
-            <!-- History Card 4 -->
-            <div class="history-card interactable" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-left:4px solid var(--success-green); padding:1.5rem 2rem; border-radius:10px; display:flex; justify-content:space-between; align-items:center;">
-                <div>
-                    <h3 class="heading-font" style="font-size:1.3rem; color: #fff; display:flex; align-items:center; gap:10px;">
-                        <i class="fa-solid fa-code text-muted"></i> Frontend Developer
-                    </h3>
-                    <p class="text-muted mt-2" style="font-size:0.95rem; display:flex; align-items:center; gap:8px;">
-                        <i class="fa-regular fa-calendar-days"></i> 2026-02-28 | 10:20:00
-                    </p>
-                </div>
-                <div class="score-display text-center">
-                    <div style="font-size:1.8rem; font-weight:700; color:var(--success-green); text-shadow:0 0 10px var(--success-green);">88%</div>
-                    <div class="text-muted" style="font-size:0.8rem; text-transform:uppercase; letter-spacing:1px;">Match Rate</div>
-                </div>
-            </div>
-
+        <div id="dynamic-history-list" class="history-list" style="display:flex; flex-direction: column; gap:1.2rem; overflow-y:auto; max-height:45vh; padding-right:15px;">
+            <!-- History items will be dynamically injected here by main.js -->
         </div>
     </div>
 </div>

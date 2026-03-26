@@ -187,6 +187,21 @@ const ResultController = {
             let currentScore = 0;
             const targetScore = evalData.score;
             
+            const now = new Date();
+            const dateStr = now.toISOString().split('T')[0] + ' | ' + now.toTimeString().split(' ')[0];
+            const roleNameMap = {
+                'frontend': 'Frontend Developer',
+                'backend': 'Backend Developer',
+                'ai': 'AI Engineer'
+            };
+            const roleKey = window.InterviewController ? window.InterviewController.role : 'frontend';
+            window.App.HistoryManager.addHistory({
+                role: roleKey,
+                roleName: roleNameMap[roleKey] || 'Developer',
+                score: targetScore,
+                date: dateStr
+            });
+            
             const offset = 283 - (targetScore / 100) * 283;
             setTimeout(() => {
                 scoreCircle.style.strokeDashoffset = offset;
