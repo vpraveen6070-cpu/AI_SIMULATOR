@@ -10,6 +10,10 @@ const App = {
         if (navLogin && navLogin.parentElement) {
             navLogin.parentElement.style.display = 'none';
         }
+        const navHistory = document.getElementById('nav-history-item');
+        if (navHistory) {
+            navHistory.style.display = 'block';
+        }
         this.navigate('role');
     },
     
@@ -37,7 +41,7 @@ const App = {
         addHistory(item) {
             let hist = this.getHistory();
             hist.unshift(item);
-            if (hist.length > 10) {
+            if (hist.length > 50) {
                 hist.pop();
             }
             localStorage.setItem('ai_interview_history', JSON.stringify(hist));
@@ -94,6 +98,13 @@ const App = {
     },
 
     async navigate(page) {
+        if (page === 'login' && this.isLoggedIn) {
+            page = 'role';
+        }
+        if (page === 'history' && !this.isLoggedIn) {
+            page = 'login';
+        }
+        
         const dynamicContent = document.getElementById('dynamic-content');
         const loading = document.getElementById('loading-screen');
         
